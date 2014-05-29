@@ -72,7 +72,7 @@ function getExports(data, handler) {
 		callAPI({
 			api_token: data.api_token,
 			action: 'export',
-			id: data.id,
+			id: data.project_id,
 			language: polang,
 			type: data.type
 		},
