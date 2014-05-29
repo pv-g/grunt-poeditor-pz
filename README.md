@@ -24,7 +24,7 @@ or using the very convenient [load-grunt-tasks](https://github.com/sindresorhus/
 
 ## Usage
 
-**This a non-tested plugin, use at your own risk.**
+**This a non-tested plugin, use at your own risk.**  
 On the other, it's only a convenient plugin, just take care of the downloaded exports.
 
 ### Example
@@ -62,11 +62,11 @@ grunt.initConfig({
 ### Options
 
 #### command
-An object specifying the API command.
+An object specifying the API command.  
 Check out the doc : https://poeditor.com/api_reference/.
 
 #### download
-Check out the doc too, at the Export command.
+Check out the doc too, at the Export command.  
 Export type = po, pot, mo, xls, apple_strings, android_strings, resx, resw, properties, or json.
 
 ## Contributing
