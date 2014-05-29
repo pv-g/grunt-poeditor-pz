@@ -1,0 +1,46 @@
+{
+  "name": "grunt-poeditor-pz",
+  "description": "Call POEditor's APIs & download exports from a grunt task",
+  "version": "0.1.0",
+  "homepage": "https://github.com/Philoozushi/grunt-poeditor-pz",
+  "author": {
+    "name": "Philippe Vignau",
+    "email": "philippe@wazaii.net",
+    "url": "http://wazaii.net"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Philoozushi/grunt-poeditor-pz.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Philoozushi/grunt-poeditor-pz/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/Philoozushi/grunt-poeditor-pz/blob/master/LICENSE-MIT"
+    }
+  ],
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "dependencies": {
+    "colors": "^0.6.2",
+    "wget": "0.0.1"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "^0.9.2",
+    "grunt-contrib-clean": "^0.5.0",
+    "grunt-contrib-nodeunit": "^0.3.3",
+    "grunt": "~0.4.5"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.5"
+  },
+  "keywords": [
+    "gruntplugin", "poeditor", "i18n", "l10n", "locale"
+  ]
+}
