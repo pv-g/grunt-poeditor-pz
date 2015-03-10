@@ -1,6 +1,6 @@
 # grunt-poeditor-pz
 
-> Call POEditor's APIs & download exports from a grunt task.
+> Call POEditor's APIs, upload & download from a grunt task.
 
 ## Getting Started
 
@@ -39,20 +39,33 @@ grunt.initConfig({
       }
     },
     target2: {
+      upload: { // special case for uploads
+        id: '<%= poeditor.options.project_id %>',
+        updating: 'terms_definitions',
+        overwrite: 1, // set any POE's API option
+        sync_terms: 1,
+        intervalSecs: 5 // interval between uploads
+        // (to avoid "Too many upload in a short period of time" API error)
+      }
+    },
+    target3: {
       download: {
-        project_id: '9999', // POEditor's project id
-        languages: { // matching POEditor's language codes with yours
-          'en-us': 'en',
-          'es': 'es',
-          'es-ar': 'es_AR',
-          'fr': 'fr'
-        },
+        project_id: '<%= poeditor.options.project_id %>',
         type: 'po', // export type (check out the doc)
         dest: '<%= conf.front %>/locale/?/LC_MESSAGES/django.po'
         // grunt style dest files
       }
     },
     options: {
+      project_id: '1234',
+      // matching POEditor's language codes with yours
+      // applies to uploads & downloads
+      languages: {
+        'en-us': 'en',
+        'es': 'es',
+        'es-ar': 'es_AR',
+        'fr': 'fr'
+      },
       api_token: '[your API token here]'
     }
   },
@@ -65,8 +78,13 @@ grunt.initConfig({
 An object specifying the API command.  
 Check out the doc : https://poeditor.com/api_reference/.
 
+#### upload
+Check out the doc, at the Upload command.  
+https://poeditor.com/api_reference/#upload
+
 #### download
 Check out the doc too, at the Export command.  
+https://poeditor.com/api_reference/#export  
 Export type = po, pot, mo, xls, apple_strings, android_strings, resx, resw, properties, or json.
 
 ## Contributing
@@ -74,7 +92,8 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
-- 0.1.0 initial (non-tested) release
+- 0.1.7~8 added upload feature
+- 0.1.0~6 initial (non-tested) releases
 
 ## License
 MIT License, see LICENSE-MIT for details.
