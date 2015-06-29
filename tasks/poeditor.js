@@ -15,7 +15,9 @@ var fs = require('fs'),
 	https = require('https'),
 	colors = require('colors'),
 	request = require('request'),
+	replace = require('replace-in-file'),
 	querystring = require('querystring');
+
 
 var grunt;
 
@@ -170,19 +172,36 @@ function downloadExports(exports, data, handler) {
 		var path = data.dest.replace('?', lang);
 		
 		paths.push(path);
-		downloadExport(url, path, function() {
-			
-			if (--numDownloads == 0)
-				handler(paths);
+		downloadExport(url, path, polang, lang, function(){
+				if (--numDownloads == 0){
+					handler(paths);
+				}
 		});
 	}
 }
 
-function downloadExport(url, path, handler) {
+//language identifier used in the .po file
+function poLanguageIdentifier(lang){
+	return 'Language: '+lang;
+}
+
+// replace from po for example "Language: sk\n"  -> "Language: sk-SK\n" 
+function replaceLangInContent(path, poeditorLang, localLang, handler){
+		replace({
+		  //Single file 
+		  files: path,
+		 
+		  //Replacement to make 
+		  replace: new RegExp(poLanguageIdentifier(poeditorLang), 'g'),
+		  with: poLanguageIdentifier(localLang)
+		}, handler);
+}
+
+function downloadExport(url, path, poeditorLang, localLang, handler) {
 	
 	wget.download(url, path)
 		.on('end', function(output) {
-			handler();
+			replaceLangInContent(path, poeditorLang, localLang, handler);
 		});
 }
 

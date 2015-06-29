@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "colors": "^0.6.2",
+    "replace-in-file": "^0.1.2",
     "request": "^2.53.0",
     "wget": "git://github.com/Pixcell/node-wget.git"
   },
