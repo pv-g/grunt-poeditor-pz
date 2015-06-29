@@ -28,9 +28,10 @@
     "test": "grunt test"
   },
   "dependencies": {
-    "wget": "0.0.1",
+    "colors": "^0.6.2",
+    "replace-in-file": "^0.1.2",
     "request": "^2.53.0",
-    "colors": "^0.6.2"
+    "wget": "git://github.com/Pixcell/node-wget.git"
   },
   "devDependencies": {
     "grunt-contrib-jshint": "^0.9.2",
@@ -42,6 +43,10 @@
     "grunt": "~0.4.0"
   },
   "keywords": [
-    "gruntplugin", "poeditor", "i18n", "l10n", "locale"
+    "gruntplugin",
+    "poeditor",
+    "i18n",
+    "l10n",
+    "locale"
   ]
 }
