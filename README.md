@@ -24,7 +24,7 @@ or using the very convenient [load-grunt-tasks](https://github.com/sindresorhus/
 
 ## Usage
 
-**This a non-tested plugin, use at your own risk.**  
+**This a non-tested plugin, use at your own risk.**
 On the other, it's only a convenient plugin, just take care of the downloaded exports.
 
 ### Example
@@ -52,6 +52,8 @@ grunt.initConfig({
       download: {
         project_id: '<%= poeditor.options.project_id %>',
         type: 'po', // export type (check out the doc)
+        filters: ["proofread", "translated"], // https://poeditor.com/api_reference/#export
+        tags: ["myTag", "myOtherTag"], // https://poeditor.com/api_reference/#export
         dest: '<%= conf.front %>/locale/?/LC_MESSAGES/django.po'
         // grunt style dest files
       }
@@ -75,16 +77,16 @@ grunt.initConfig({
 ### Options
 
 #### command
-An object specifying the API command.  
+An object specifying the API command.
 Check out the doc : https://poeditor.com/api_reference/.
 
 #### upload
-Check out the doc, at the Upload command.  
+Check out the doc, at the Upload command.
 https://poeditor.com/api_reference/#upload
 
 #### download
-Check out the doc too, at the Export command.  
-https://poeditor.com/api_reference/#export  
+Check out the doc too, at the Export command.
+https://poeditor.com/api_reference/#export
 Export type = po, pot, mo, xls, apple_strings, android_strings, resx, resw, properties, or json.
 
 ## Contributing

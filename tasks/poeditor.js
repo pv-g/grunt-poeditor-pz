@@ -138,6 +138,17 @@ function getExports(data, handler) {
 
 	var exports = {};
 	var numLangs = data.numLanguages;
+	var filters = data.filters;
+	var tags = data.tags;
+
+	if (filters && filters instanceof Array) {
+		filters = JSON.stringify(filters);
+	}
+
+	if (tags && tags instanceof Array) {
+		tags = JSON.stringify(tags);
+	}
+
 	for (var polang in data.languages.toLocal) {
 
 		callAPI({
@@ -146,8 +157,8 @@ function getExports(data, handler) {
 			id: data.project_id,
 			language: polang,
 			type: data.type,
-			filters: data.filters,
-			tags: data.tags
+			filters: filters,
+			tags: tags
 		},
 		function(res, command) {
 			if (res.item)
