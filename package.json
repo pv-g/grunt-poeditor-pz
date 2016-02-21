@@ -39,9 +39,13 @@
     "grunt": "~0.4.5"
   },
   "peerDependencies": {
-    "grunt": "~0.4.0"
+    "grunt": ">=0.4.0"
   },
   "keywords": [
-    "gruntplugin", "poeditor", "i18n", "l10n", "locale"
+    "gruntplugin",
+    "poeditor",
+    "i18n",
+    "l10n",
+    "locale"
   ]
 }
